@@ -5,13 +5,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const confirmPasswordInput = document.getElementById('verify-password');
     const confirmButton = document.getElementById('confirmButton');
 
+    const userInput = [userNameInput, emailInput, passWordInput];
+
     confirmButton.addEventListener('click', function () {
-        if (userNameInput.value === '' || emailInput.value === '' || passWordInput.value === '' || confirmPasswordInput.value === '') {
-            alert('Fyll i alla fält.');
-        } else if (passWordInput.value !== confirmPasswordInput.value) {
-            alert('Lösenorden matchar inte.');
-        } else {
-            alert('Anmälan bekräftad!');
-        }
-    })
+        userInput.forEach(element => {
+            console.log(element);
+            if (element.value === '') {
+                alert('Fyll i alla fält.');
+            } else if (element === passWordInput) {
+                if (element.value !== confirmPasswordInput.value) {
+                    alert('Lösenorden matchar inte.');
+                } else {
+                    alert('Anmälan bekräftad');
+                }
+            }
+        });
+    });
 });
